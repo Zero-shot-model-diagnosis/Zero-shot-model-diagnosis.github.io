@@ -28,9 +28,17 @@ body {
   box-shadow: 0px 0px 10px #999;
   border-radius: 15px;
 }
+.contenttitle {
+  font-family: "Google Sans";
+}
 a, a:visited {
-  color: #224b8d;
+  color: #0077cb;
   font-weight: 300;
+  text-decoration: none;
+}
+A:hover {
+  color:#990000;
+  text-decoration: none;
 }
 #authors {
   text-align: center;
@@ -47,11 +55,17 @@ a, a:visited {
 }
 h1 {
   text-align: center;
-  font-size: 35px;
+  font-size: 36px;
   font-weight: 300;
 }
 h2 {
+  text-align: center;
   font-size: 30px;
+  font-weight: 300;
+}
+h3 {
+  text-align: center;
+  font-size: 24px;
   font-weight: 300;
 }
 code {

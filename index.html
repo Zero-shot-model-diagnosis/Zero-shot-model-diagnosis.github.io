@@ -5,47 +5,38 @@
 <link href="./ZOOM_files/style.css" rel="stylesheet">
 <script type="text/javascript" src="./ZOOM_files/jquery.mlens-1.0.min.js"></script> 
 <script type="text/javascript" src="./ZOOM_files/jquery.js"></script>
+<script src="https://kit.fontawesome.com/d4de99971f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <div class="content">
-  <br>
-  <br>
-  <br>
-  <h1><strong>ZOOM: Zero-shot Model Diagnosis </strong></h1>
+  <h1><strong>ZOOM: <span style="color: #990000;">Z</span>er<span style="color: #990000;">o</span>-sh<span style="color: #990000;">o</span>t <span style="color: #990000;">M</span>odel Diagnosis </strong></h1>
+  <h3>CVPR 2023</h3>
   <p id="authors"><span><a href="https://natanielruiz.github.io/"></a></span>
     <a href="https://peterljq.github.io/">Jinqi Luo*</a> 
     <a href="https://www.zhaoningwang.com">Zhaoning Wang*</a> 
     <a href="https://github.com/ChenWu98">Chen Henry Wu</a> 
     <a href="https://www.donghuang-research.com/">Dong Huang</a> 
     <a href="https://www.cs.cmu.edu/~ftorre/">Fernando De La Torre</a> 
-    
-    <br>
-    <br>
-    <br>
 
     <br>
     <br>
 
-  <span style="font-size: 24px">Carnegie Mellon University
+  <span style="font-size: 20px">School of Computer Science<br/>Carnegie Mellon University
   </span></p>
-  <br>
-  <br>
-  <br>
+
   <font size="+2">
     <p style="text-align: center;">
-      <a href="" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="./ZOOM_files/bibtex.txt" target="_blank">[BibTeX]</a>
+      <a href="https://github.com/" target="_blank"><i class="far fa-file"></i> Paper</a> &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="./ZOOM_files/bibtex.txt" target="_blank"><i class="fas fa-paperclip"></i> Citation</a> &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> Code</a>
     </p>
 </font>
-  <br>
 
-</div>
-<div class="content">
+  <hr style="border-top: 2px dashed #000000">
   <br>
-  <img src="./ZOOM_files/teaser_figure_v5.jpg" class="teaser-gif" style="width:100%;"><br>
-  <hr>
-  <h2 style="text-align:center"><b><em>Diagnose your model with a generative model, just provide the attributes and our pipeline will give their sensitivity analysis.</em></b></h3>
+  <img src="./ZOOM_files/teaser_figure.png" class="teaser-gif" style="width:60%;">
+  <h3 style="text-align:center"><b>Diagnose your model's failure by just providing the attributes of your interest.<br/>Plug-and-play, our framework generates counterfactual explanation and sensitivity analysis.</b></h3>
 
 </div>
 <div class="content">
@@ -73,42 +64,32 @@
   <img class="summary-img" src="./ZOOM_files/background.png" style="width:100%;"> <br>
 </div> -->
 <div class="content">
-  <h2>Approach</h2>
+  <h2>Framework</h2>
   <br>
   <img class="summary-img" src="./ZOOM_files/overall_pipeline.jpg" style="width:100%;"> <br>
   <p> The ZOOM framework. Black solid lines stand for forward passes, red dashed lines stand for backpropagation, and purple
     dashed lines stands for inference after the optimization converges. The user inputs single or multiple attributes, and we map them into
     edit directions. Then we assign to each edit direction (attribute) a weight, which represents how much we are adding/removing this attribute. We iteratively perform adversarial learning on the attribute space to maximize the counterfactual
-    effectiveness. More details in the paper. </p>
+    effectiveness. More details in the <a href="https://github.com/" target="_blank">paper</a>. </p>
 </div>
 <div class="content">
-  <h2>Edit Visualization</h2>
+  <h2>Counterfactual Visualization</h2>
   <p></p>
-  <h3>Multi-attribute counterfactual in the human face domain</h3>
-  <img class="summary-img" src="./ZOOM_files/multi_attr_human.jpg" style="width:100%;"> <br>
-  <h3>Single  attribute progressive edits</h3>
-  <img class="summary-img-l" src="./ZOOM_files/single_attr_dog.jpg" style="width:48%;">
-  <img class="summary-img-r" src="./ZOOM_files/single_attr_young.jpg" style="width:48%;"> <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <p></p>
-  <br>
+  <h3>Multi-attribute counterfactual</h3>
+  <img class="summary-img" src="./ZOOM_files/multi_attr_additional.png" style="width:72%;"> <br>
+  <!-- <img class="summary-img" src="./ZOOM_files/multi_attr_cat.png" style="width:60%;"> <br> -->
+  <img class="summary-img" src="./ZOOM_files/multi_attr_human.png" style="width:100%;"> <br>
+  <h3>Single-attribute counterfactual</h3>
+  <img class="summary-img" src="./ZOOM_files/single_attr.png" style="width:100%;"> <br>
 </div>
 <div class="content">
   <h2>Histogram Results</h2>
   <h3>Results for diagnosing sensitivities of different models </h3>
 <img class="summary-img" src="./ZOOM_files/histograms.png" style="width:100%;"><br>
   <h3>Results for diagnosing with 19 attributes </h3>
-<img class="summary-img" src="./ZOOM_files/grand_histogram.jpg" style="width:100%;"><br>
+<img class="summary-img" src="./ZOOM_files/grand_histogram.jpg" style="width:75%;"><br>
 <h3>Results for diagnosing with attribute combinations </h3>
-<img class="summary-img" src="./ZOOM_files/multi_attr_histogram.jpg" style="width:100%;"><br>
+<img class="summary-img" src="./ZOOM_files/multi_attr_histogram.jpg" style="width:75%;"><br>
 </div>
 <!-- <div class="content">
   <h2>Text-Guided View Synthesis</h2>
@@ -151,6 +132,12 @@
     &nbsp;&nbsp;booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},<br>
     &nbsp;&nbsp;year={2023}<br>
     } </code> 
+  </div>
+
+  <div class="content">
+    <h2>Acknowledgements</h2>
+    <p>We would like to thank George Cazenavette, Tianyuan Zhang, Yinong Wang, Hanzhe Hu, Bharath Raj for their invaluable feedbacks and suggestions in paper presentation and experimental design. 
+      We sincerely express our gratitude to Ken Ziyu Liu, Jiashun Wang, and Bowen Li for their revise and support that improve this work.</p>
   </div>
 </body>
 </html>
