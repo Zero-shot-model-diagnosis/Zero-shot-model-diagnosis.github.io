@@ -1,143 +1,255 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ZOOM: Zero-shot Model Diagnosis</title>
-<link href="./ZOOM_files/style.css" rel="stylesheet">
-<script type="text/javascript" src="./ZOOM_files/jquery.mlens-1.0.min.js"></script> 
-<script type="text/javascript" src="./ZOOM_files/jquery.js"></script>
-<script src="https://kit.fontawesome.com/d4de99971f.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Zero-shot Model Diagnosis that generates counterfactual samples and sensitivity analysis.">
+  <meta name="keywords" content="Trustworthy Machine Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zero-shot Model Diagnosis</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
-
 <body>
-<div class="content">
-  <h1><strong>ZOOM: <span style="color: #990000;">Z</span>er<span style="color: #990000;">o</span>-sh<span style="color: #990000;">o</span>t <span style="color: #990000;">M</span>odel Diagnosis </strong></h1>
-  <h3>CVPR 2023</h3>
-  <p id="authors"><span><a href="https://natanielruiz.github.io/"></a></span>
-    <a href="https://peterljq.github.io/">Jinqi Luo*</a> 
-    <a href="https://www.zhaoningwang.com">Zhaoning Wang*</a> 
-    <a href="https://github.com/ChenWu98">Chen Henry Wu</a> 
-    <a href="https://www.donghuang-research.com/">Dong Huang</a> 
-    <a href="https://www.cs.cmu.edu/~ftorre/">Fernando De La Torre</a> 
 
-    <br>
-    <br>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span style="color: #990000;">Z</span>er<span style="color: #990000;">o</span>-sh<span style="color: #990000;">o</span>t <span style="color: #990000;">M</span>odel Diagnosis</h1>
+          <h3 class="title is-4 publication-title">CVPR 2023</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://peterljq.github.io/">Jinqi Luo</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.zhaoningwang.com">Zhaoning Wang</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/ChenWu98">Chen Henry Wu</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.donghuang-research.com/">Dong Huang</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.cmu.edu/~ftorre/">Fernando De La Torre</a>
+            </span>
+          </div>
 
-  <span style="font-size: 20px">School of Computer Science<br/>Carnegie Mellon University
-  </span></p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">School of Computer Science<br/>Carnegie Mellon University</span>
+          </div>
 
-  <font size="+2">
-    <p style="text-align: center;">
-      <a href="https://github.com/" target="_blank"><i class="far fa-file"></i> Paper</a> &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="./ZOOM_files/bibtex.txt" target="_blank"><i class="fas fa-paperclip"></i> Citation</a> &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> Code</a>
-    </p>
-</font>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper (coming soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Zero-shot-Model-Diagnosis/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
 
-  <hr style="border-top: 2px dashed #000000">
-  <br>
-  <img src="./ZOOM_files/teaser_figure.png" class="teaser-gif" style="width:60%;">
-  <h3 style="text-align:center"><b>Diagnose your model's failure by just providing the attributes of your interest.<br/>Plug-and-play, our framework generates counterfactual explanation and sensitivity analysis.</b></h3>
+            </div>
 
-</div>
-<div class="content">
-  <h2 style="text-align:center;">Abstract</h2>
-  <p>When it comes to deploying deep vision models, the behavior of these systems must be explicable to ensure confidence in their reliability and fairness. A common approach
-    to evaluate deep learning models is to build a labeled test
-    set with attributes of interest and assess how well it performs. However, creating a balanced test set (i.e., one that
-    is uniformly sampled over all the important traits) is often time-consuming, expensive, prone to mistakes, and ultimately impractical. The question we try to address is: can
-    we evaluate the sensitivity of deep learning models to arbitrary visual attributes without a test set?
-    This paper argues the case that Zero-shot Model Diagnosis (ZOOM) is possible without the need for a test set nor
-    labeling. To avoid the need for test sets, our system relies on
-    the CLIP and a generative model (e.g., StyleGAN). The key
-    idea is enabling the user to select a set of prompts (relevant
-    to the problem) and our system will automatically search
-    for semantic counterfactual images (i.e., synthesized images
-    that flip the prediction in the case of a binary classifier) using the generative model. We use two tasks, attribute classification and key-point detection, in two visual domains (human faces and animal faces) to demonstrate the viability of
-    our methodology. Extensive experiments demonstrate that
-    our method is capable of producing counterfactual images
-    and offering sensitivity analysis for model diagnosis without the need for a test set.</p>
-</div>
-<!-- <div class="content">
-  <h2>Background</h2>
-  <p> Given a particular subject such as clock (shown in the real images on the left), it is very challenging to generate it in different contexts with state-of-the-art text-to-image models, while maintaining high fidelity to its key visual features. Even with dozens of iterations over a text prompt that contains a detailed description of the appearance of the clock (<em>"retro style yellow alarm clock with a white clock face and a yellow number three on the right part of the clock face in the jungle"</em>), the Imagen model [Saharia et al., 2022] can't reconstruct its key visual features (third column). Furthermore, even models whose text embedding lies in a shared language-vision space and can create semantic variations of the image, such as DALL-E2 [Ramesh et al., 2022], can neither reconstruct the appearance of the given subject nor modify the context (second column). In contrast, our approach (right) can synthesize the clock with high fidelity and in new contexts (<em>"a [V] clock in the jungle"</em>).</p>
-  <br>
-  <img class="summary-img" src="./ZOOM_files/background.png" style="width:100%;"> <br>
-</div> -->
-<div class="content">
-  <h2>Framework</h2>
-  <br>
-  <img class="summary-img" src="./ZOOM_files/overall_pipeline.jpg" style="width:100%;"> <br>
-  <p> The ZOOM framework. Black solid lines stand for forward passes, red dashed lines stand for backpropagation, and purple
-    dashed lines stands for inference after the optimization converges. The user inputs single or multiple attributes, and we map them into
-    edit directions. Then we assign to each edit direction (attribute) a weight, which represents how much we are adding/removing this attribute. We iteratively perform adversarial learning on the attribute space to maximize the counterfactual
-    effectiveness. More details in the <a href="https://github.com/" target="_blank">paper</a>. </p>
-</div>
-<div class="content">
-  <h2>Counterfactual Visualization</h2>
-  <p></p>
-  <h3>Multi-attribute counterfactual</h3>
-  <img class="summary-img" src="./ZOOM_files/multi_attr_additional.png" style="width:72%;"> <br>
-  <!-- <img class="summary-img" src="./ZOOM_files/multi_attr_cat.png" style="width:60%;"> <br> -->
-  <img class="summary-img" src="./ZOOM_files/multi_attr_human.png" style="width:100%;"> <br>
-  <h3>Single-attribute counterfactual</h3>
-  <img class="summary-img" src="./ZOOM_files/single_attr.png" style="width:100%;"> <br>
-</div>
-<div class="content">
-  <h2>Histogram Results</h2>
-  <h3>Results for diagnosing sensitivities of different models </h3>
-<img class="summary-img" src="./ZOOM_files/histograms.png" style="width:100%;"><br>
-  <h3>Results for diagnosing with 19 attributes </h3>
-<img class="summary-img" src="./ZOOM_files/grand_histogram.jpg" style="width:75%;"><br>
-<h3>Results for diagnosing with attribute combinations </h3>
-<img class="summary-img" src="./ZOOM_files/multi_attr_histogram.jpg" style="width:75%;"><br>
-</div>
-<!-- <div class="content">
-  <h2>Text-Guided View Synthesis</h2>
-  <p>Our technique can synthesized images with specified viewpoints for a subject cat (left to right: top, bottom, side and back views). Note that the generated poses are  different from the input poses, and the background changes in a realistic manner given a pose change. We also highlight the preservation of complex fur patterns on the subject cat's forehead.</p>
-  <br>
-  <img class="summary-img" src="./ZOOM_files/novel_views.png" style="width:100%;"> <br>
-</div>
-<div class="content">
-  <h2>Property Modification</h2>
-  <p>We show color modifications in the first row (using prompts ``a [color] [V] car''), and crosses between a specific dog and different animals in the second row (using prompts ``a cross of a [V] dog and a [target species]''). We highlight the fact that our method preserves unique visual features that give the subject its identity or essence, while performing the required property modification.</p>
-  <br>
-  <img class="summary-img" src="./ZOOM_files/property_modification.png" style="width:100%;"> <br>
-</div>
-<div class="content">
-  <h2>Accessorization</h2>
-  <p>Outfitting a dog with accessories. The identity of the subject is preserved and many different outfits or accessories can be applied to the dog given a prompt of type <em>"a [V] dog wearing a police/chef/witch outfit''</em>. We observe a realistic interaction between the subject dog and the outfits or accessories, as well as a large variety of possible options.</p>
-  <br>
-  <img class="summary-img" src="./ZOOM_files/accessories.png" style="width:100%;"> <br>
-</div>
-<div class="content">
-  <h2>BibTex</h2>
-  <code> @article{ruiz2022dreambooth,<br>
-  &nbsp;&nbsp;title={DreamBooth: Fine Tuning Text-to-image Diffusion Models for Subject-Driven Generation},<br>
-  &nbsp;&nbsp;author={Ruiz, Nataniel and Li, Yuanzhen and Jampani, Varun and Pritch, Yael and Rubinstein, Michael and Aberman, Kfir},<br>
-  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2208.12242},<br>
-  &nbsp;&nbsp;year={2022}<br>
-  } </code> 
-</div>
-<div class="content" id="acknowledgements">
-  <p><strong>Acknowledgements</strong>:
-    We thank Rinon Gal, Adi Zicher, Ron Mokady, Bill Freeman, Dilip Krishnan, Huiwen Chang and Daniel Cohen-Or for their valuable inputs that helped improve this work, and to Mohammad Norouzi, Chitwan Saharia and William Chan for providing us with their support and the pretrained models of Imagen. Finally, a special thank you to David Salesin for his feedback, advice and for his support for the project.
-    <!-- Recycling a familiar <a href="https://chail.github.io/latent-composition/">template</a> ;). --> 
-  <!-- </p> -->
-
-  <div class="content">
-    <h2>BibTex</h2>
-    <code> @inproceedings{zoom2023cvpr,<br>
-    &nbsp;&nbsp;title={ZOOM: Zero-shot Model Diagnosis },<br>
-    &nbsp;&nbsp;author={Jinqi Luo and Zhaoning Wang and Chen Henry Wu and Dong Huang and Fernando De La Torre},<br>
-    &nbsp;&nbsp;booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},<br>
-    &nbsp;&nbsp;year={2023}<br>
-    } </code> 
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="content">
-    <h2>Acknowledgements</h2>
-    <p>We would like to thank George Cazenavette, Tianyuan Zhang, Yinong Wang, Hanzhe Hu, Bharath Raj for their invaluable feedbacks and suggestions in paper presentation and experimental design. 
-      We sincerely express our gratitude to Ken Ziyu Liu, Jiashun Wang, and Bowen Li for their revise and support that improve this work.</p>
+<section class="hero teaser">
+  <div class="container is-max-desktop" style="text-align:center">
+    <h2 class="subtitle has-text-centered">
+      How can we evaluate trustworthiness of a vision model <b>without an annotated test set</b>?
+    </h2>
+    <img src="./static/images/teaser_figure.png" style="width:60%;">
+      <h2 class="subtitle has-text-centered">
+        Diagnose your vision model's failure by just typing the attributes of interest. <br/>Our Plug-and-play framework generates a histogram of sensitivity analysis.
+      </h2>
+    </div>
   </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            When it comes to deploying deep vision models, the behavior of these systems must be explicable to ensure confidence in their reliability and fairness. A common approach
+            to evaluate deep learning models is to build a labeled test
+            set with attributes of interest and assess how well it performs. However, creating a balanced test set (i.e., one that
+            is uniformly sampled over all the important traits) is often time-consuming, expensive, prone to mistakes, and ultimately impractical. The question we try to address is: can
+            we evaluate the sensitivity of deep learning models to arbitrary visual attributes without a test set?
+          </p>
+          <p>
+            This paper argues the case that <b><span style="color: #990000;">Z</span>er<span style="color: #990000;">o</span>-sh<span style="color: #990000;">o</span>t <span style="color: #990000;">M</span>odel Diagnosis</b> (ZOOM) is possible without the need for a test set nor
+            labeling. To avoid the need for test sets, our system relies on
+            the CLIP and a generative model (e.g., StyleGAN). The key
+            idea is enabling the user to select a set of prompts (relevant
+            to the problem) and our system will automatically search
+            for semantic counterfactual images (i.e., synthesized images
+            that flip the prediction in the case of a binary classifier) using the generative model. We use two tasks, attribute classification and key-point detection, in two visual domains (human faces and animal faces) to demonstrate the viability of
+            our methodology. Extensive experiments demonstrate that
+            our method is capable of producing counterfactual images
+            and offering sensitivity analysis for model diagnosis without the need for a test set.
+          </p>
+        </div>
+
+        <br/>
+  
+        <h2 class="title is-3">Framework</h2>
+        <div class="columns is-vcentered interpolation-panel">
+          <img src="./static/images/overall_pipeline.jpg" style="width:100%;">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            The ZOOM framework. Black solid lines stand for forward passes, red dashed lines stand for backpropagation, and purple
+            dashed lines stands for inference after the optimization converges. The user inputs single or multiple attributes, and we map them into
+            edit directions. Then we assign to each edit direction (attribute) a weight, which represents how much we are adding/removing this attribute. We iteratively perform adversarial learning on the attribute space to maximize the counterfactual
+            effectiveness. More details in the <a href="https://github.com/" target="_blank">paper</a>.
+          </p>
+        </div>
+        <br/>
+        <!--/ Interpolating. -->
+
+        <h2 class="title is-3">Diagnosis Visualization</h2>
+
+        <h3 class="title is-4">Counterfactual demo</h3>
+        <table>
+          <tr>
+            <td><img src="./static/images/gif/animal_0.gif"></td>
+            <td><img src="./static/images/gif/animal_1.gif"></td>
+            <!-- <td><img src="./static/images/gif/animal_2.gif"></td> -->
+            <td><img src="./static/images/gif/animal_3.gif"></td>
+            <td><img src="./static/images/gif/animal_4.gif"></td>
+            <!-- <td><img src="./static/images/gif/human_0.gif"></td> -->
+            <td><img src="./static/images/gif/human_1.gif"></td>
+            <td><img src="./static/images/gif/human_2.gif"></td>
+            <td><img src="./static/images/gif/human_3.gif"></td>
+            <td><img src="./static/images/gif/human_4.gif"></td>
+          </tr>
+          <tr>
+            <td colspan="10"><img src="./static/images/gif/slider.gif"></td>
+          </tr>
+        </table>
+
+        <br/>
+
+        <h3 class="title is-4">Single-attribute search</h3>
+        <div style="text-align:center">
+          <img class="summary-img" src="./static/images/histogram_with_image.png" style="width:100%;"> <br>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Single-attribute counterfactual to generate sensitivity histograms. Model diagnosis histograms generated by the counterfactual's effectiveness on the target model. The vertical axis values reflect the attribute sensitivities calculated by averaging the model probability change over all sampled images. The horizontal axis is the attribute space input by user.
+          </p>
+        </div>
+
+        <br/>
+
+        <h3 class="title is-4">Multi-attribute search</h3>
+        <div style="text-align:center">
+          <img class="summary-img" src="./static/images/multi_attr_additional.png" style="width:72%;"> <br>
+          <img class="summary-img" src="./static/images/multi_attr_human.png" style="width:100%;"> <br>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Multi-attribute counterfactual search in the vehicle, church, and human face domain. If exists, the right up corner box in each image records the model predication (e.g., probability).
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>@inproceedings{zoom2023cvpr,
+    title={ZOOM: Zero-shot Model Diagnosis},
+    author={Jinqi Luo and Zhaoning Wang and Chen Henry Wu and Dong Huang and Fernando De La Torre},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year={2023}
+}
+</code></pre>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Acknowledgements</h2>
+        <div class="content has-text-justified">
+          <p>We would like to thank George Cazenavette, Tianyuan Zhang, Yinong Wang, Hanzhe Hu, Bharath Raj for their invaluable feedbacks and suggestions in paper presentation and experimental design. 
+            We sincerely express our gratitude to Ken Ziyu Liu, Jiashun Wang, Bowen Li, and Ce Zheng for their revise and support that improve this work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content has-text-justified">
+        <p>
+          We thank <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for opensouring the template of this website. 
+          The website theme colors are derived from [<a href="https://arxiv.org/pdf/2111.06377.pdf">1</a>, <a href="https://branding.web-resources.upenn.edu/logos-and-branding/elements-penn-logo">2</a>].
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
