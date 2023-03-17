@@ -99,7 +99,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop" style="text-align:center">
     <h2 class="subtitle has-text-centered">
-      How can we evaluate a deep learning computer vision model <b>without a test set</b>?
+      How can we diagnose a deep learning computer vision model <b>without a test set</b>?
     </h2>
     <img src="./static/images/teaser_figure.png" style="width:60%;">
       <h2 class="subtitle has-text-centered">
@@ -146,7 +146,7 @@
         </div>
         <div class="content has-text-justified">
           <p>
-            The ZOOM framework. Black solid lines stand for forward passes, red dashed lines stand for backpropagation, and purple
+            <b>The ZOOM framework.</b> Black solid lines stand for forward passes, red dashed lines stand for backpropagation, and purple
             dashed lines stands for inference after the optimization converges. The user inputs single or multiple attributes, and we map them into
             edit directions. Then we assign to each edit direction (attribute) a weight, which represents how much we are adding/removing this attribute. We iteratively perform adversarial learning on the attribute space to maximize the counterfactual
             effectiveness. More details in the <a href="https://github.com/" target="_blank">paper</a>.
@@ -160,7 +160,7 @@
         <h3 class="title is-4">Counterfactual demo</h3>
         <div class="content has-text-justified">
           <p>
-            This demo shows how a classifier score changes with semantic modifications of the image. we refer the images as counterfactual images, as the images are generated to flip the target model, in this case, a classifier.
+            This demo shows how a classifier score changes with semantic modifications of the image. We refer the images as counterfactual images, as the images are generated to flip the target model, in this case, a classifier.
             <!-- Some progressive generation of counterfactual samples (images which flip the prediction of the target model).  -->
           </p>
         </div>
@@ -169,6 +169,12 @@
             <td><img src="./static/images/gif/animation.gif"></td> 
           </tr>
         </table>
+        
+        <div class="content has-text-justified">
+          <p>
+            The first four images are on Dog/Cat classifier, and the following two are on perceived age (Young) classifier. Lastly, the final two are on the perceived gender classifier.
+          </p>
+        </div>
 
         <br/>
 
@@ -188,13 +194,26 @@
         <h3 class="title is-4">Multi-attribute search</h3>
         <div class="content has-text-justified">
           <p>
-            This demo shows the generation of counterfactual images over multiple simultaneous attributes. In the images with a box on the right-up corner, the number indicates the probability of the classifier. 
+            This demo shows the generation of counterfactual images over multiple simultaneous attributes.
+            In the images with a box on the right-up corner, the number indicates the probability of the classifier. 
             <!-- Multi-attribute counterfactual search in the vehicle, church, and human face domain. In this case, Multiple attributes are edited and combined to generate the most powerful counterfacutal samples. If exists, the right up corner box in each image records the model predication (e.g., probability). -->
           </p>
         </div>
+
+        <!-- <div class="content has-text-justified">
+          <p>
+            
+            Counterfactual images on binary classifiers, the number indicates the probability of the classifier. 
+          </p>
+        </div> -->
         <div style="text-align:center">
-          <img class="summary-img" src="./static/images/multi_attr_additional.png" style="width:72%;"> <br>
+          <h4 class="title is-6">Human Computer Vision models:</h4>
           <img class="summary-img" src="./static/images/multi_attr_human.png" style="width:100%;"> <br>
+          <br>
+          <h5 class="title is-6">Other Computer Vision models:</h5>
+          <img class="summary-img" src="./static/images/multi_attr_additional.png" style="width:72%;"> <br>
+
+
         </div>
 
       </div>
@@ -246,6 +265,6 @@
     </div>
   </div>
 </footer>
-
+<a href="https://clustrmaps.com/site/1btnr"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=W7qxge2Snq-QqfwiBAVe4ve5n7nnPGW2h2BgMuI1Bsk&cl=ffffff" hidden/></a>
 </body>
 </html>
